@@ -3,6 +3,14 @@ import "./App.css";
 import reducer, { initialState } from "../reducers/index";
 import TotalDisplay from "./TotalDisplay";
 import CalcButton from "./CalcButton";
+import {
+  applyNumber,
+  changeOperation,
+  clearDisplay,
+  addMemory,
+  memory,
+  clearMemory,
+} from "../actions/index";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -15,14 +23,14 @@ function App() {
     dispatch(applyNumber(value));
   };
   const memoryPlusHandler = () => {
-    dispatch(memoryPlus());
+    dispatch(addMemory());
   };
 
   const memoryRecallHandler = () => {
-    dispatch(memoryRecall());
+    dispatch(memory());
   };
   const memoryClearHandler = () => {
-    dispatch(memoryClear());
+    dispatch(clearMemory());
   };
   const addOperator = () => {
     dispatch(changeOperation("+"));
